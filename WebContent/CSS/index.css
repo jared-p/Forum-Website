@@ -1,14 +1,45 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150%;
+}
+/*Declared the main div element to css grid and sets layout params*/
 .main {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
     grid-gap: 10px;
     background-color: #2196F3;
     padding: 10px;
 }
-  
+/*Sets the left and right bar internal padding, these are default grid elements since in the grid container*/
 .main > div {
     background-color: rgba(255, 255, 255, 0.8);
-    text-align:start;
     padding: 20px 20px 20px 20px;
-    font-size: 30px;
+}
+/*Declares the right column to be a grid (grid to hold the forum elements)*/
+.right_col{
+    display: grid;
+    grid-gap: 10px;
+    text-align:start;
+}
+/*Sets the content within the left col container to be centered.*/
+.left_col{
+    text-align:center;
+}
+/*Sets the internals of each forum element (which are grid elements of the right_col class)*/
+.right_col > .post {
+    background-color: rgba(241, 41, 41, 0.8);
+    text-align:start;
+    padding: 10px 10px 10px 10px;
+}
+/*Title for each of the forum discussion postings*/
+.post_title{
+    text-decoration: underline;
+}
+.post_content{
+    font-size: 80%;
+}
+.post_information{
+    text-align:end;
+    font-size: 75%;
+    border-top: 1px solid black;
 }
