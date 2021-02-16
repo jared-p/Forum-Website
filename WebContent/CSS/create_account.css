@@ -1,9 +1,11 @@
 body{
     text-align:center;
     margin:10em 40em 0em 40em;
+    
 }
 form{
     margin:auto;
+    line-height: 2.5em;
 }
 h1{
     font-size: 4em;
