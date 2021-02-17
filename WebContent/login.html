@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<nav class="fixed_to_top">
+</nav>
 <head>
   <meta charset="utf-8">
-  <title>Login</title>
+  <title>Login To To Your Account</title>
   <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 
 <body>
-  <header>
-
-  </header>
   <div class="container">
-    <h1>Login</h1>
-    <form class="post" action="index.html" method="post">
+    <p class="login">Login</p>
+    <!-- form -->
+    <form class="form1" action="index.html" method="post">
       <!-- Username Request -->
-      <p> <input type="text" name="Username" value="Username"> </p>
+      <input class="user" type="text" name="user" align="center" value="Username">
       <!-- Password Request-->
-      <p> <input type="text" name="Pass" value="Password"> </p>
+      <input class="pass" type="text" name="Pass" align="center" value="Password">
       <!--Sign in -->
-      <p> <input type="submit" name="login" value="Sign in"></p>
-      <p> <a href="create_account">Create Account</a> <a href="lost_password">Forgot Password?</a></p>
+      <p class="submit"><button type="button" name="button">Login</button></p>
 
+      <!--create account -->
+      <ul class="links">
+        <li> <a href="create_account">Create Account</a></li>
+        <li></li>
+        <li><a href="lost_password">Forgot Password?</a></li>
+      </ul>
     </form>
   </div>
 </body>
