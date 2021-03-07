@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        image: cosc360-php
+        depends_on:
+            - db
+        container_name: cosc360-php-project
+        volumes:
+            - ./:/var/www/html/
+        networks:
+            shop-network:
+                aliases:
+                    - cosc360-php
+        ports:
+            - 80:80
+    db:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        container_name: mssql-project
+        restart: always
+        environment:
+            ACCEPT_EULA: 'Y'
+            SA_PASSWORD: 'YourStrong@Passw0rd'
+        ports:
+            - '1433:1433'
+        expose:
+            - '1433'
+        volumes:
+            - cosc360-db:/var/lib/mssql
+        networks:
+            shop-network:
+                aliases:
+                    - cosc360-db
+volumes: 
+    cosc360-db:
+networks:
+    shop-network:
