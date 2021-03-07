@@ -1,12 +1,86 @@
+drop table user;
+drop table topic;
+drop table post;
+drop table admin;
+drop table comment;
 
+create table user (
+    userid int identity,
+    username varchar(15),
+    pass varchar(20),
+    firstName varchar(15),
+    lastName varchar(15),
+    email varchar(320),
+    profilePic VARBINARY(MAX), /* may be incorrect */
+    unique (username),
+    primary key (userid)
+);
 
+create table topic (
+    topicid int identity,
+    topicName varchar(30),
+    primary key (topicid)
+);
 
+create table post (
+    postid int identity,
+    title varchar(50),
+    body varchar(1000),
+    postdate datetime,
+    topicid varchar(30),
+    userid int,
+    primary key (postid),
+    foreign key (userid) references user (userid) 
+        on delete cascade on update cascade,
+    foreign key (topicid) references topic(topicid)
+        on delete cascade on update cascade
+);
 
+create table admin (
+    adminid int identity,
+    username varchar(15),
+    pass varchar(20),
+    unique (username),
+    primary key (adminid)
+);
 
+create table comment (
+    commentid int identity,
+    body varchar(400),
+    postid int,
+    userid int,
+    primary key (commentid),
+    foreign key (userid) references user(userid)
+        on delete cascade on update cascade,
+    foreign key (postid) references post(postid)
+        on delete cascade on update cascade
+);
 
+/* users */
+insert into user(username, pass, firstName, lastName, email) values 
+    ("jrod", "pass", "jrock", "hawk", "fuck@gmail.com"),
+    ("jared", "pass1", "jrod", "ded", "fuck@gmail.com");
 
+/* topics */
+insert into topic(topicName) values ('funny'), ('stupid'), ('fail');
 
+/* posts */
+insert into post(title, body, postdate, topicid, userid) values 
+    ('This is funny','fuck',datetime(),1,1),
+    ('This is stupid','testtt',datetime(),2,1),
+    ('This is fail','trial',datetime(),3,2),
+    ('This is indiferent','aight',datetime(),1,2);
 
+/* admins */
+insert into admin(username, pass) values
+    ('jared','1'),
+    ('jrock','pass');
+
+/* comments */
+insert into comment(body, postid, userid) values
+    ('this is stupid',1,2),
+    ('love this',3,1),
+    ('changed mind, love it',1,2);
 
 
 

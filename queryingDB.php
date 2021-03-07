@@ -12,10 +12,6 @@
             <?php 
 
             include 'include/db_credentials.php';
-            $con = sqlsrv_connect($server, $connectionInfo);
-            if( $con === false ) {
-                die( print_r( sqlsrv_errors(), true));
-            }
             $sql = "SELECT * FROM category";
 	        $results = sqlsrv_query($con, $sql, array());
             echo "<table><tr><th>CategoryId</th><th>Category Name</th></tr>";
