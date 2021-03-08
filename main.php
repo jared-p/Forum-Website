@@ -1,5 +1,6 @@
 <?php
-include 'include/db_credentials.php';
+require 'include/db_credentials.php';
+include 'include/header.php';
 ?>
 <!DOCTYPE html>
 
@@ -10,15 +11,13 @@ include 'include/db_credentials.php';
     <title>Main Page</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
+
 <body>
-    <header>
-        <!-- This is the main navigation-->
-        I am though Header
-    </header>
     <div id="search-bar">
-        <form method="get">
+        <form method="get" action="main.php">
             <label for="search">Search For Discussion by Name</label>
             <input type="text" placeholder="Search" name="search" id="search">
             <input type="submit" value="submit">
@@ -26,58 +25,56 @@ include 'include/db_credentials.php';
     </div>
     <div class="main">
         <div class="left_col">
-            <h1 class="left_col_title">Hot Topics</h1>
-            <ul>
-                <li>Hot Topic</li>
-                <li>Hot Topic</li>
-                <li>Hot Topic</li>
-                <li>Hot Topic</li>
-            </ul>
-            <h1 class="left_col_title">Topics</h1>
-            <ul>
-                <li>Topic</li>
-                <li>Topic</li>
-                <li>Topic</li>
-                <li>Topic</li>
-            </ul>
+            <h1 class="left_col_title">Top 3 Topics</h1>
+            <?php
+            $topQry = "SELECT topicName, count(topicName) from post GROUP BY topicName ORDER BY count(topicName) DESC LIMIT 3";
+            $topResult = $pdo->query($topQry);
+            while($topRow = $topResult->fetch()){
+                echo '<div class = "top_topics">';
+                echo $topRow['topicName'];
+                echo '</div>';
+            }
+            ?>    
+            <h1 class="left_col_title">All Topics</h1>
+            <?php
+            $topQry = "SELECT DISTINCT topicName from post ORDER BY topicName ASC";
+            $topResult = $pdo->query($topQry);
+            while($topRow = $topResult->fetch()){
+                echo '<div class = "top_topics">';
+                echo $topRow['topicName'];
+                echo '</div>';
+            }
+            ?>
         </div>
         <div class="right_col">
             <?php
 
-                $sql = "SELECT * FROM post";
-	        if ($result = sqlsrv_query($con, $sql, array())){
-                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                    echo $row['title'];
-                    echo '<h3 class="post_title">'.$row['title'].'</h3>';
-                    echo '<p class="post_content">'.$row['content'].'</p>';
-                    $username = "Error";
-                    $query = "SELECT username from user where username = '".$row['username']."'";
-                    $rslt = sqlsrv_query($con, $query, array());
-                    while( $row1 = sqlsrv_fetch_array( $rslt, SQLSRV_FETCH_ASSOC)){
-                        $username = $row1['username'];
-                    }
-                    $numcomments = 0;
-                    $query = "SELECT count(*) from comment where postid = '".$row['postid']."'";
-                    $rslt = sqlsrv_query($con, $query, array());
-                    while( $row1 = sqlsrv_fetch_array( $rslt, SQLSRV_FETCH_ASSOC)){
-                        $numcomments ++;
-                    }
-                    echo '<p class="post_information">'.$numComments.', '.$username.', '.$row['postdate'].'</p>';
+            $postQry = "SELECT * FROM post order by postdate desc"; //Can change if want to "order by" (comments, date, length etc)
+            $result0 = $pdo->query($postQry);
+            while ($row0 = $result0->fetch()){
+                echo '<div class="post">';
+                echo '<h3 class="post_title">'.$row0['title'].'</h3>';
+                $length = strlen($row0['body']);
+                if( $length > 100){
+                    echo '<p class="post_content">'.substr($row0['body'],0,200).'...</p>';
+                }else{
+                    echo '<p class="post_content">'.$row0['body'].'</p>';
                 }
+                $numComments = 0;
+                $commentQry = "SELECT COUNT(*) FROM comment WHERE postid=".$row0['postid'];
+                $result1 = $pdo->query($commentQry);
+                while ($row1 = $result1->fetch()){
+                    $numComments = $row1['COUNT(*)'];
+                }
+                $postdate = date_create($row0['postdate']);
+                echo '<p class="post_information">Comments: '.$numComments.', Username: '.$row0['username'].', Posted on: '.date_format($postdate, 'g:ia m/d/Y').'</p>';
+                echo '</div>';
             }
+            
 
+            $pdo = null;
 
             ?>
-            <div class="post">
-                <h3 class="post_title">Forum Title</h3>
-                <p class="post_content">These are the words that I speak</p>
-                <p class="post_information"># Comments, Author, datetime</p>
-            </div>
-            <div class="post">
-                <h3 class="post_title">Forum Title</h3>
-                <p class="post_content">These are the words that I speak</p>
-                <p class="post_information"># Comments, Author, datetime</p>
-            </div>
             <div class="post">
                 <h3 class="post_title">Forum Title</h3>
                 <p class="post_content">These are the words that I speak</p>

@@ -1,24 +1,33 @@
 body{
     font-size: 150%;
 }
+
+.main{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*Declared the main div element to css grid and sets layout params*/
 .main {
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-gap: 10px;
+    grid-gap: 0.5%;
     background-color: #2196F3;
-    padding: 10px;
+    padding: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 /*Sets the left and right bar internal padding, these are default grid elements since in the grid container*/
 .main > div {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px 20px 20px 20px;
+    padding: 1%;
 }
 /*Declares the right column to be a grid (grid to hold the forum elements)*/
 .right_col{
     display: grid;
     grid-gap: 10px;
     text-align:start;
+    margin: 0 0.5% 0 0;
 }
 /*Sets the content within the left col container to be centered.*/
 .left_col{
@@ -28,7 +37,7 @@ body{
 .right_col > .post {
     background-color: rgba(241, 41, 41, 0.8);
     text-align:start;
-    padding: 10px 10px 10px 10px;
+    padding: 0.5%;
 }
 /*Title for each of the forum discussion postings*/
 .post_title{
@@ -43,29 +52,26 @@ body{
     border-top: 1px solid black;
 }
 .left_col_title{
-    text-align: start;
+    /*text-align: start; */
+    color:rgba(70, 0, 199, 0.8);
 }
 /* Styling the searchbar */
 #search-bar{
     background-color: yellowgreen;
-    margin:0 3em 0.3em 3em;
-    display: flex;
+    margin:0 0 0.3em 0;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 80%;
     padding: 4em 0 0 0;
 }
 input[type=text] {
-    width: 100%;
-    padding: 1em 2em;
-    margin: 8px 0;
+    width: 50%;
+    margin: 1em 1em;
+    padding: 0.25em;
     box-sizing: border-box;
     border-radius: 0.5em;
-  }
-  header{
-      position: fixed;
-      background-color: orange;
-      width: 100%;
-      text-align: center;
-      height: 2.5em;
   }
