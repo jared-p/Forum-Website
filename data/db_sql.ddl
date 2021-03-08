@@ -56,27 +56,22 @@ create table comment (
         on delete cascade on update cascade
 );
 
-/* users */
 insert into user(username, pass, firstName, lastName, email) values 
     ("jrod", "pass", "jrock", "hawk", "fuck@gmail.com"),
     ("jared", "pass1", "jrod", "ded", "fuck@gmail.com");
 
-/* topics */
 insert into topic(topicName) values ('funny'), ('stupid'), ('fail');
 
-/* posts */
 insert into post(title, body, postdate, topicid, userid) values 
     ('This is funny','fuck',datetime(),1,1),
     ('This is stupid','testtt',datetime(),2,1),
     ('This is fail','trial',datetime(),3,2),
     ('This is indiferent','aight',datetime(),1,2);
 
-/* admins */
 insert into admin(username, pass) values
     ('jared','1'),
     ('jrock','pass');
 
-/* comments */
 insert into comment(body, postid, userid) values
     ('this is stupid',1,2),
     ('love this',3,1),
