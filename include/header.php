@@ -13,9 +13,6 @@
     <body>
         <header>
             The header
-        </header>
-
-    
-        <script src="" async defer></script>
+        </header>    
     </body>
 </html>
