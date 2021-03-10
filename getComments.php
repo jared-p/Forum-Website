@@ -10,7 +10,9 @@ $qry = "SELECT * FROM comment WHERE postid=".$postid;
 $array = array();
 $result = $pdo->query($qry);
 while($row = $result->fetch()){
-    $comment = array("commentid"=>$row["commentid"],"body"=>$row["body"],"username"=>$row["username"],"parentid"=>$row["parentid"]); 
+    $date = date_create($row["commentdate"]);
+    $datetime = date_format($date, 'm/d/Y g:ia');
+    $comment = array("commentid"=>$row["commentid"],"body"=>$row["body"],"username"=>$row["username"],"parentid"=>$row["parentid"], "commentdate"=>$datetime); 
     array_push($array,$comment);    
 }
 echo json_encode($array);

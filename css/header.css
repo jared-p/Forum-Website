@@ -1,7 +1,10 @@
-header{
+header#header{
     position: fixed;
-    background-color: orange;
+    background-color: rgb(138, 2, 2);
     width: 100%;
     text-align: center;
     height: 2.5em;
 }
+#header-spacer {
+    height: 3em;
+    }

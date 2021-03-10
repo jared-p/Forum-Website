@@ -8,9 +8,7 @@ require 'include/db_credentials.php';
 <head>
     <meta charset="utf-8">
     <title>Main Page</title>
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/header.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
         window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
@@ -18,9 +16,7 @@ require 'include/db_credentials.php';
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-    <?php
-    include 'include/header.php';
-    ?>
+    <?php include 'include/header.php'; ?>
     <div id="search-bar">
         <form method="get" action="main.php">
             <label for="search"> For Discussion by Title</label>
@@ -89,8 +85,8 @@ require 'include/db_credentials.php';
                 echo '<div class="post">';
                 echo '<h3 class="post_title" id="'.$row0['postid'].'">'.$row0['title'].'</h3>';
                 $length = strlen($row0['body']);
-                if( $length > 100){
-                    echo '<p class="post_content">'.substr($row0['body'],0,200).'...</p>';
+                if( $length > 500){
+                    echo '<p class="post_content">'.substr($row0['body'],0,500).'...</p>';
                 }else{
                     echo '<p class="post_content">'.$row0['body'].'</p>';
                 }

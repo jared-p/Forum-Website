@@ -8,6 +8,11 @@ window.addEventListener('load', function(){
         window.location.href = pointer;
         //$(this).css('color','red');
     });
-
+    $(".post").on('mouseover', function(e){
+        $(this).css("border", "1px solid #d7dadc");
+    });
+    $(".post").on('mouseout', function(e){
+        $(this).css("border", "1px solid #343536");
+    });
 
 });

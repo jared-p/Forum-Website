@@ -1,5 +1,7 @@
 body{
     font-size: 150%;
+    color: #d7dadc;
+    background-color: #030303;
 }
 
 .main{
@@ -12,14 +14,14 @@ body{
     display: grid;
     grid-template-columns: 20% 80%;
     grid-gap: 0.5%;
-    background-color: #2196F3;
+    /*background-color: #030303;*/
     padding: 0.5%;
     margin-left: auto;
     margin-right: auto;
 }
 /*Sets the left and right bar internal padding, these are default grid elements since in the grid container*/
 .main > div {
-    background-color: rgba(255, 255, 255, 0.8);
+    /* can add another background colour here */
     padding: 1%;
 }
 /*Declares the right column to be a grid (grid to hold the forum elements)*/
@@ -32,16 +34,17 @@ body{
 /*Sets the content within the left col container to be centered.*/
 .left_col{
     text-align:center;
+    background-color: #1a1a1b;
+    border: 1px solid #343536;
 }
 /*Sets the internals of each forum element (which are grid elements of the right_col class)*/
 .right_col > .post {
-    background-color: rgba(241, 41, 41, 0.8);
     text-align:start;
-    padding: 0.5%;
 }
 /*Title for each of the forum discussion postings*/
 .post_title{
     text-decoration: underline;
+    margin-bottom: 20px;
 }
 .post_content{
     font-size: 80%;
@@ -49,15 +52,16 @@ body{
 .post_information{
     text-align:end;
     font-size: 75%;
-    border-top: 1px solid black;
+    border-top: 1px solid #d7dadc;
+    margin-top: 15px;
 }
 .left_col_title{
     /*text-align: start; */
-    color:rgba(70, 0, 199, 0.8);
+    color:#ffffff;
 }
 /* Styling the searchbar */
 #search-bar{
-    background-color: yellowgreen;
+    background-color: #1a1a1b;
     margin:0 0 0.3em 0;
     /*display: flex;
     justify-content: center;
@@ -66,7 +70,6 @@ body{
     margin-left: auto;
     margin-right: auto;
     font-size: 80%;
-    padding: 4em 0 0 0;
 }
 input[type=text] {
     width: 50%;
@@ -75,3 +78,54 @@ input[type=text] {
     box-sizing: border-box;
     border-radius: 0.5em;
   }
+a:link{
+    color: #d7dadc;
+    text-decoration: none;
+}
+a:visited{
+    color: #d7dadc;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration:underline;
+}
+.post{
+    border: 1px solid #343536;
+    background-color: #1a1a1b;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+#comments{
+    margin-top: 15px;
+}
+.root_comment{
+    border: 1px solid #343536;
+    background-color: #1a1a1b;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 15px;
+}
+.sub_comment{
+    border: 1px solid #343536;
+    background-color: #1a1a1b;
+    width: 90%;
+    margin-left: auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin-top: 20px;
+}
+#no_comments{
+    text-align: center;
+}
+.comment_information{
+    text-align:end;
+    font-size: 75%;
+    border-top: 1px solid #d7dadc;
+    margin-top: 5px;
+}
