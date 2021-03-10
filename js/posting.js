@@ -10,8 +10,6 @@ window.addEventListener('load', function(){
                 $("#comments").before($('<h3 id="comments_title">Comments: '+comments.length+'</h3>'));
             for( var i = 0; i < comments.length; i++){
                 if( comments[i].parentid == null){
-                    //if( $("#comments")[0].children.length == 0){ //may have to change the == value if add to the div node.
-                    //}
                     var node = $("<div id='c"+comments[i].commentid+"' class='root_comment'>"+comments[i].body+"</div>");
                     var infoNode = $('<p class="comment_information">Username: '+comments[i].username+', Posted on: '+comments[i].commentdate+'</p>');
                     node.append(infoNode);

@@ -71,7 +71,7 @@ body{
     margin-right: auto;
     font-size: 80%;
 }
-input[type=text] {
+#search {
     width: 50%;
     margin: 1em 1em;
     padding: 0.25em;
@@ -128,4 +128,17 @@ a:hover{
     font-size: 75%;
     border-top: 1px solid #d7dadc;
     margin-top: 5px;
+}
+#username, #password{
+    margin: 0.4em;
+}
+#submit, #reset {
+    margin: 0.4em;
+}
+#login_form{
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1a1a1b;
+    border-color: #d7dadc;
 }
