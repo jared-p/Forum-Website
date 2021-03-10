@@ -64,23 +64,33 @@ require 'include/db_credentials.php';
             if($_SERVER["REQUEST_METHOD"] == "GET"){
                 $search_input = $_GET["search"] ?? "";
                 $topic_input = $_GET['topic'] ?? "";
-            }
+            //}
             $postQry = "";
-            if ($search_input != "")
-                if( $topic_input != "" && $topic_input != "all")
-                    $postQry = "SELECT * FROM post WHERE title LIKE '%".$search_input."%' AND topicName = '".$topic_input."' ORDER BY postdate DESC";
-                else
-                    $postQry = "SELECT * FROM post WHERE title LIKE '%".$search_input."%' ORDER BY postdate DESC";
-            else
-                if( $topic_input != "" && $topic_input != "all")
-                    $postQry = "SELECT * FROM post WHERE topicName = '".$topic_input."' ORDER BY postdate DESC";
-                else
-                    $postQry = "SELECT * FROM post ORDER BY postdate DESC";
             
+            if ($search_input != ""){
+                if( $topic_input != "" && $topic_input != "all"){
+                    $postQry = "SELECT * FROM post WHERE title LIKE ? AND topicName = ? ORDER BY postdate DESC";
+                    $result0 = $pdo->prepare($postQry);
+                    $result0->execute(array('%'.$search_input.'%', $topic_input));
+                }else{
+                    $postQry = "SELECT * FROM post WHERE title LIKE ? ORDER BY postdate DESC";
+                    $result0 = $pdo->prepare($postQry);
+                    $result0->execute(array('%'.$search_input.'%'));
+                }
+            }else{
+                if( $topic_input != "" && $topic_input != "all"){
+                    $postQry = "SELECT * FROM post WHERE topicName = ? ORDER BY postdate DESC";
+                    $result0 = $pdo->prepare($postQry);
+                    $result0->execute(array($topic_input));
+                }else{
+                    $postQry = "SELECT * FROM post ORDER BY postdate DESC";
+                    $result0 = $pdo->prepare($postQry);
+                    $result0->execute();
+                }
+            }
             //echo $postQry;
-            $result0 = $pdo->query($postQry);
-            $tstrslt = $pdo->query($postQry);
-            if ($tstrslt->fetch()){
+            //$tstrslt = $pdo->query($postQry);
+            //if ($tstrslt->fetch()){
             while ($row0 = $result0->fetch()){
                 echo '<div class="post">';
                 echo '<h3 class="post_title" id="'.$row0['postid'].'">'.$row0['title'].'</h3>';
@@ -106,7 +116,7 @@ require 'include/db_credentials.php';
             
 
             $pdo = null;
-
+        //}
             ?>
             <div class="post">
                 <h3 class="post_title">Forum Title</h3>
