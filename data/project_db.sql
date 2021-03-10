@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2021 at 05:42 AM
+-- Generation Time: Mar 10, 2021 at 06:32 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -50,17 +50,19 @@ CREATE TABLE `comment` (
   `commentid` int(11) NOT NULL,
   `body` varchar(400) NOT NULL,
   `postid` int(11) NOT NULL,
-  `username` varchar(15) NOT NULL
+  `username` varchar(15) NOT NULL,
+  `parentid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `comment`
 --
 
-INSERT INTO `comment` (`commentid`, `body`, `postid`, `username`) VALUES
-(1, 'this is stupid', 1, 'jared'),
-(2, 'love this', 3, 'jrod'),
-(3, 'changed mind, love it', 1, 'jared');
+INSERT INTO `comment` (`commentid`, `body`, `postid`, `username`, `parentid`) VALUES
+(1, 'this is stupid', 1, 'jared', NULL),
+(2, 'love this', 3, 'jrod', NULL),
+(3, 'changed mind, love it', 1, 'jared', NULL),
+(4, 'Very Neat', 1, 'jrod', 1);
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,8 @@ INSERT INTO `post` (`postid`, `title`, `body`, `postdate`, `topicName`, `usernam
 (1, 'This is funny', 'fuck', '2019-10-16 18:00:00', 'funny', 'jrod'),
 (2, 'This is stupid', 'testtt', '2019-10-16 18:00:00', 'stupid', 'jrod'),
 (3, 'This is fail', 'trial', '2019-10-16 18:00:00', 'fail', 'jared'),
-(4, 'This is indiferent', 'aight', '2019-10-16 18:00:00', 'funny', 'jared');
+(4, 'This is indiferent', 'aight', '2019-10-16 18:00:00', 'funny', 'jared'),
+(5, 'This is the ultimate test', 'Eleifend placerat at, efficitur nec justo. Nam iaculis elit ut nisl cursus, eu sollicitudin tortor interdum. Vestibulum bibendum aliquam rutrum. Aenean eget dolor et neque blandit porta id nec sapien. Fusce sit amet quam euismod, placerat felis nec, congue justo. Quisque pharetra sapien a luctus rhoncus. Phasellus sollicitudin elit in lectus interdum dictum. Vestibulum eleifend sed ligula eu laoreet. Sed id ultrices metus. Nam convallis a turpis in mollis. Cras posuere finibus justo in dignissim. Curabitur nunc libero, convallis non nulla eu, gravida blandit tortor. Ut viverra convallis leo at mollis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla lacinia volutpat massa, non blandit augue interdum vitae. Proin quis massa libero. Donec finibus, est eu porta sollicitudin, massa turpis aliquam justo, vitae fermentum leo purus eu lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;', '2019-10-17 05:45:11', 'stupid', 'jrod');
 
 -- --------------------------------------------------------
 
@@ -145,7 +148,8 @@ ALTER TABLE `admin`
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`commentid`),
   ADD KEY `postid` (`postid`),
-  ADD KEY `username` (`username`);
+  ADD KEY `username` (`username`),
+  ADD KEY `parentid` (`parentid`);
 
 --
 -- Indexes for table `post`
@@ -175,13 +179,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `commentid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -191,6 +195,7 @@ ALTER TABLE `post`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
+  ADD CONSTRAINT `commentparentconstraint` FOREIGN KEY (`parentid`) REFERENCES `comment` (`commentid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `postidconstraint` FOREIGN KEY (`postid`) REFERENCES `post` (`postid`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usernameconstraint` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
