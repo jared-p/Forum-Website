@@ -22,13 +22,17 @@ require 'include/db_credentials.php';
   include 'include/header.php';
   //dynamically create the postings putting the postid as the div id and filling with the text
   //name etc, js will do the rest 
-  $topic_input = "";
+  $postid = "";
   if($_SERVER["REQUEST_METHOD"] == "GET"){
-    $topic_input = $_GET["id"] ?? "none";
+    $postid = $_GET["id"] ?? "none";
   }
-  if( $topic_input != "" && $topic_input != "none"){
-    $qry = "SELECT * FROM post WHERE postid=".$topic_input;
-    $result = $pdo->query($qry);
+  //Must sanatize these inputs from the user
+  if( $postid != "" && $postid != "none"){
+    //$qry = "SELECT * FROM post WHERE postid=".$postid;
+    //$result = $pdo->query($qry);
+    $postQry = "SELECT * FROM post WHERE postid=?";
+    $result = $pdo->prepare($postQry);
+    $result->execute(array($postid));
     while($row = $result->fetch()){
       echo '<div id="'.$row['postid'].'" class="post">';
       echo '<h3 class="post_title">'.$row['title'].'</h3>';
