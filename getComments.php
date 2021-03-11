@@ -5,10 +5,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $postid = $_POST['postid'] ?? "broken";
 }
 //will select all comments from the post and format in JSON for the js to parse
-$qry = "SELECT * FROM comment WHERE postid=".$postid;
+$qry = "SELECT * FROM comment WHERE postid=?";
 //echo $qry;
+$result = $pdo->prepare($qry);
+$result->execute(array($postid));
 $array = array();
-$result = $pdo->query($qry);
 while($row = $result->fetch()){
     $date = date_create($row["commentdate"]);
     $datetime = date_format($date, 'm/d/Y g:ia');

@@ -33,14 +33,20 @@ require 'include/db_credentials.php';
     $postQry = "SELECT * FROM post WHERE postid=?";
     $result = $pdo->prepare($postQry);
     $result->execute(array($postid));
-    while($row = $result->fetch()){
-      echo '<div id="'.$row['postid'].'" class="post">';
-      echo '<h3 class="post_title">'.$row['title'].'</h3>';
-      echo '<p class="post_content">'.$row['body'].'</p>';
-      $postdate = date_create($row['postdate']);
-      echo '<p class="post_information">Username: '.$row['username'].', Posted on: '.date_format($postdate, 'm/d/Y g:ia').'</p>';
-      //echo '</div>';
+    if($result->rowCount() != 0){
+      while($row = $result->fetch()){
+        echo '<div id="'.$row['postid'].'" class="post">';
+        echo '<h3 class="post_title">'.$row['title'].'</h3>';
+        echo '<p class="post_content">'.$row['body'].'</p>';
+        $postdate = date_create($row['postdate']);
+        echo '<p class="post_information">Username: '.$row['username'].', Posted on: '.date_format($postdate, 'm/d/Y g:ia').'</p>';
+        //echo '</div>';
+      }
+    }else{
+      echo "<p>No postings match this id</p>";
     }
+  }else{
+    echo "<p>Invalid post request</p>";
   }
   echo '<div id="comments">';
   echo '</div>';
