@@ -18,7 +18,23 @@ require 'include/db_credentials.php';
 </head>
 <body>
     <?php include 'header.php'; ?>
-    
+    <!-- <div id="search-bar">
+        <form method="get" action="main.php">
+            <label for="search"> For Discussion by Title</label>
+            <input type="text" placeholder="Search" name="search" id="search">
+            <select name="topic" id="topic">
+                <?php
+                $topicQry = "SELECT * FROM topic";
+                echo '<option value="all">Choose Topic</option>';
+                $topicResult = $pdo->query($topicQry);
+                while($topicRow = $topicResult->fetch()){
+                    echo '<option value="'.$topicRow['topicName'].'">'.$topicRow['topicName'].'</option>';
+                }
+                ?>
+            </select>
+            <input type="submit" value="submit">
+        </form>
+    </div> -->
     <div class="main">
         <div class="left_col">
             <h1 class="left_col_title">Top 3 Topics</h1>
