@@ -18,7 +18,7 @@ require 'include/db_credentials.php';
     </head>
     <body>
         <?php
-        include 'include/header.php';
+        include 'header.php';
         if (!isset($_SESSION['user'])){
             $previousPage= $_SERVER['HTTP_REFERER'];
             if( $previousPage != "http://localhost/cosc360-team10/login.php")

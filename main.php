@@ -14,11 +14,11 @@ require 'include/db_credentials.php';
         window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
     </script>
     <script type="text/javascript" src="js/main.js"></script>
-    
+
 </head>
 <body>
-    <?php include 'include/header.php'; ?>
-    <div id="search-bar">
+    <?php include 'header.php'; ?>
+    <!-- <div id="search-bar">
         <form method="get" action="main.php">
             <label for="search"> For Discussion by Title</label>
             <input type="text" placeholder="Search" name="search" id="search">
@@ -34,7 +34,7 @@ require 'include/db_credentials.php';
             </select>
             <input type="submit" value="submit">
         </form>
-    </div>
+    </div> -->
     <div class="main">
         <div class="left_col">
             <h1 class="left_col_title">Top 3 Topics</h1>
@@ -46,7 +46,7 @@ require 'include/db_credentials.php';
                 echo "<a href='main.php?topic=".$topRow['topicName']."'>".$topRow['topicName']."</a>";
                 echo '</div>';
             }
-            ?>    
+            ?>
             <h1 class="left_col_title">All Topics</h1>
             <?php
             $topQry = "SELECT DISTINCT topicName from post ORDER BY topicName ASC";
@@ -67,7 +67,7 @@ require 'include/db_credentials.php';
                 $topic_input = $_GET['topic'] ?? "";
             //}
             $postQry = "";
-            
+
             if ($search_input != ""){
                 if( $topic_input != "" && $topic_input != "all"){
                     $postQry = "SELECT * FROM post WHERE title LIKE ? AND topicName = ? ORDER BY postdate DESC";
@@ -114,7 +114,7 @@ require 'include/db_credentials.php';
             }else{
                 echo "<br>No Search Results Found";
             }
-            
+
 
             $pdo = null;
         //}

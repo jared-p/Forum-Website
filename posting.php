@@ -19,9 +19,9 @@ require 'include/db_credentials.php';
   </head>
   <body>
   <?php
-  include 'include/header.php';
+  include 'header.php';
   //dynamically create the postings putting the postid as the div id and filling with the text
-  //name etc, js will do the rest 
+  //name etc, js will do the rest
   $postid = "";
   if($_SERVER["REQUEST_METHOD"] == "GET"){
     $postid = $_GET["id"] ?? "none";
