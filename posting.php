@@ -26,10 +26,7 @@ require 'include/db_credentials.php';
   if($_SERVER["REQUEST_METHOD"] == "GET"){
     $postid = $_GET["id"] ?? "none";
   }
-  //Must sanatize these inputs from the user
   if( $postid != "" && $postid != "none"){
-    //$qry = "SELECT * FROM post WHERE postid=".$postid;
-    //$result = $pdo->query($qry);
     $postQry = "SELECT * FROM post WHERE postid=?";
     $result = $pdo->prepare($postQry);
     $result->execute(array($postid));

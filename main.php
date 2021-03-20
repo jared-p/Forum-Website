@@ -14,6 +14,7 @@ require 'include/db_credentials.php';
         window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
     </script>
     <script type="text/javascript" src="js/main.js"></script>
+    
 </head>
 <body>
     <?php include 'include/header.php'; ?>
