@@ -18,7 +18,7 @@ require 'include/db_credentials.php';
   
 
   <body>
-    <form method="get" action="">
+    <form method="post" action="create_account.php">
       <fieldset>
         <legend><h1>Create Account</h1></legend>
 
@@ -38,7 +38,7 @@ require 'include/db_credentials.php';
         <input type="text" name="lname" placeholder="Enter your last name" class="required"/>
         <br/>
         <label>User Photo:</label>
-        <input type="file" id="uPhoto "name="photo" accept="image/png, image/jpeg" class="required">
+        <input type="file" id="uPhoto " name="photo" accept="image/png, image/jpeg" class="required">
 
         <div id="req">
           All fields must be entered
@@ -46,6 +46,26 @@ require 'include/db_credentials.php';
 
         <input type="submit" />
         <input type="reset" />
+
+        <?php
+          $id=$_POST["id"];
+          $email=$_POST["email"];
+          $password=$_POST["password"];
+          $fname=$_POST["fname"];
+          $lname=$_POST["lname"];
+          $userImage = file_get_contents($_POST["photo"]);
+
+          $sqlinsert="INSERT INTO users(username, pass, firstName, lastName, email, pic) VALUES (?,?,?,?,?,?)";
+          $statement=$pdo->prepare($sqlinsert);
+          $statement->bindValue(1,$id);
+          $statement->bindValue(2,$password);
+          $statement->bindValue(3,$fname);
+          $statement->bindValue(4,$lname);
+          $statement->bindValue(5,$email);
+          $statement->bindParam(6,$userImage, PDO::PARAM_LOB);
+          $statement->execute();
+        ?> 
+
       </fieldset>
     </form>
     <a href="main.php">Go to Main Page</a>
