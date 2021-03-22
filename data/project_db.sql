@@ -121,7 +121,7 @@ CREATE TABLE `users` (
   `firstName` varchar(20) NOT NULL,
   `lastName` varchar(20) NOT NULL,
   `email` varchar(320) NOT NULL,
-  `pic` blob NOT NULL
+  `pic` varbinary(2500000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

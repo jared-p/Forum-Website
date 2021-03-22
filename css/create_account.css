@@ -1,7 +1,9 @@
 body{
     text-align:center;
     margin:10em 40em 0em 40em;
-    
+    font-size: 150%;
+    color: #d7dadc;
+    background-color: #030303;
 }
 form{
     margin:auto;
@@ -9,4 +11,7 @@ form{
 }
 h1{
     font-size: 4em;
+}
+#req{
+    color:grey;
 }
