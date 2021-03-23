@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'include/db_credentials.php';
 ?>
 
