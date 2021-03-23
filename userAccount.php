@@ -17,6 +17,7 @@ require 'include/db_credentials.php';
 
 </head>
     <body>
+        <!-- including the header with the session start -->
         <?php 
         include 'header.php'; 
         ?>
@@ -29,27 +30,66 @@ require 'include/db_credentials.php';
         <div class = "left_col">
             <?php    
             // $user = $_SESSION["user"];
-            $user = "this guy";
-            $username = $_SESSION['username'];
-            $test = $_GET['user'];
-            print_r($_SESSION);
+            // $user = "this guy";
+            //setting up variables
+            $user = $_SESSION['user'];
+            $test = $_SESSION['user'];
+
+            // 
+            //prints out all the session, very useful for testing
+            // print_r($_SESSION);
+            // 
+
             ?>
-            <?php if(empty($user)){
-                echo "thing done";
-            }elseif(empty($test)){
-                echo "thing not done";
-            }else{
-                echo "damn dude";
-            }
+            <!-- checks if the user is logged in, used for testing -->
+            <?php 
+            // if(empty($user)){
+            //     echo "thing done";
+            // }elseif(empty($test)){
+            //     echo "thing not done";
+            // }else{
+            //     echo "damn dude";
+            // }
+            // echo $user;
             ?>
             <h1 class="left_col_title"><?php echo $user;?></h1>
         </div>
-        
+        <!-- the column on the right -->
         <div class = "right_col">
-            <div class = "post">
-            <h1 class = "right_col_title">Title of the posts they have made</h1>
-            <p class = "post_content">some kind of content</p>
-            <p class = "post_information">query info relative to user</p>
+            <!-- the style for the box on the right -->
+            <?php
+            //getting the posts that the logged in user has using session variable and a query
+            $postQry = "SELECT * FROM post WHERE username ='$user' ORDER BY postdate DESC";
+                    $result0 = $pdo->prepare($postQry);
+                    $result0->execute();
+            
+            while ($row0 = $result0->fetch()){
+                //making the post id and body of the posts for the user 
+                echo '<div class="post">';
+                echo '<h3 class="post_title" id="'.$row0['postid'].'">'.$row0['title'].'</h3>';
+                $length = strlen($row0['body']);
+                if( $length > 500){
+                    echo '<p class="post_content">'.substr($row0['body'],0,500).'...</p>';
+                }else{
+                    echo '<p class="post_content">'.$row0['body'].'</p>';
+                }
+                // getting the comments count
+                $numComments = 0;
+                $commentQry = "SELECT COUNT(*) FROM comment WHERE postid=".$row0['postid'];
+                $result1 = $pdo->query($commentQry);
+                while ($row1 = $result1->fetch()){
+                    $numComments = $row1['COUNT(*)'];
+                }
+                // using the comments count for the post info
+                $postdate = date_create($row0['postdate']);
+                echo '<p class="post_information">Comments: '.$numComments.', Username: '.$row0['username'].', Posted on: '.date_format($postdate, 'm/d/Y g:ia').'</p>';
+                echo '</div>';
+            
+            }
+            // reseting the PHP Data Object back to null
+            $pdo = null;
+            ?>
+            
             </div>
         </div>
 
