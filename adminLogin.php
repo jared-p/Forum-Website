@@ -61,7 +61,6 @@ require 'include/db_credentials.php';
             echo "<p>You are already logged in</p>";
             if( isset($_SESSION['previousPage'])){
                 $previousPage = $_SESSION['previousPage'];
-                sleep(5);
                 echo "<p>You will be redirected to your last page in 3 seconds</p>";
                 header("refresh:3; url=".$previousPage);
                 echo "<a href='".$previousPage."'>If not click here</a>";
