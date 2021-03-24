@@ -45,6 +45,7 @@ if ($delete != "") {
         <script type="text/javascript">
             window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
         </script>
+        <script type="text/javascript" src="js/edit_comments.js"></script>
     </head>
 
     <body>
@@ -55,7 +56,7 @@ if ($delete != "") {
             $rslt->execute(array($postid));
             if ($rslt->rowCount() != 0) {
                 while ($rw = $rslt->fetch()) {
-                    echo "<div id='main_wrapper'>";
+                    echo "<div class='post main_wrapper' id='" . $postid . "'>";
                     $title = $rw['title'];
                     $body = $rw['body'];
                     $topicName = $rw['topicName'];
@@ -90,7 +91,20 @@ if ($delete != "") {
                     </form>
     <?php
                     echo "</div>";
-                    //add comments which can be edited
+                    echo '<div id="comments">';
+                    echo '</div>';
+                    //add comments which can be edited 
+                    /*
+                    $sql = "SELECT * FROM comment WHERE postid=?";
+                    $result = $pdo->prepare($sql);
+                    $result->execute(array($postid));
+                    if ($result->rowCount() != 0) {
+                        while ($rw = $result->fetch()) {
+                        }
+                    } else {
+                        echo "<p>This post has no comments</p>";
+                    }
+                    */
                 }
 
 

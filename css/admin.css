@@ -1,41 +1,49 @@
-#user_fixed_height{
+#user_fixed_height {
 	height: 20em;
 	overflow: auto;
 }
+
 #user_grid {
 	padding: 0.5em;
 	grid-template-columns: auto auto auto auto auto;
 	display: grid;
 }
-.user_item{
+
+.user_item {
 	border: 1px solid #d7dadc;
 	padding: 0.2em;
 }
-.user_heading{
+
+.user_heading {
 	text-align: center;
 	font-weight: bold;
 }
-.post_item{
+
+.post_item {
 	border: 1px solid #d7dadc;
 	padding: 0.2em;
 	background-color: #1a1a1b;
 }
-.post_heading{
+
+.post_heading {
 	text-align: center;
 	font-weight: bold;
 }
-#main_wrapper{
+
+.main_wrapper {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	justify-content: center;
 }
-#title_editor{
+
+#title_editor {
 	height: 3em;
 	width: 40em;
 }
-#body_editor{
+
+#body_editor {
 	height: 25em;
 	width: 40em;
 }
