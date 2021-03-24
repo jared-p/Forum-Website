@@ -6,10 +6,6 @@ $name = "";
 $email = "";
 $post = "";
 
-$userQry = "SELECT * FROM users";
-$result = $pdo->prepare($userQry);
-$result->execute();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uname = $_POST['username'] ?? "";
     $disable = $_POST['disable'] ?? "";
