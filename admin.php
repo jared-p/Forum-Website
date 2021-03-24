@@ -139,7 +139,7 @@ if ($name != "" && $email != "" && $post != "") {
                         echo "<div class='post_item'>" . date_format($postdate, 'm/d/Y g:ia') . "</div>";
                         echo "<div>";
                 ?>
-                        <form action="editPost.php" method="get" class="action">
+                        <form action="editPost.php" method="post" class="action">
                             <input type="submit" value="Edit Posting">
                             <input type="hidden" name="postid" value="<?php echo $rw['postid']; ?>">
                         </form>

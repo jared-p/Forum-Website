@@ -24,3 +24,18 @@
 	text-align: center;
 	font-weight: bold;
 }
+#main_wrapper{
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+}
+#title_editor{
+	height: 3em;
+	width: 40em;
+}
+#body_editor{
+	height: 25em;
+	width: 40em;
+}
