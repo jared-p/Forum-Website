@@ -22,11 +22,11 @@ if ($delete != "") {
         if ($topic == "unchanged") {
             $sql = "UPDATE post set title=?, body=? WHERE postid=?";
             $updaterslt = $pdo->prepare($sql);
-            $updaterslt->execute(array($title, $body, $postid));
+            $updaterslt->execute(array(trim($title), trim($body), $postid));
         } else {
             $sql = "UPDATE post set title=?, body=?, topicName=? WHERE postid=?";
             $updaterslt = $pdo->prepare($sql);
-            $updaterslt->execute(array($title, $body, $topic, $postid));
+            $updaterslt->execute(array(trim($title), trim($body), trim($topic), $postid));
         }
     }
 ?>
