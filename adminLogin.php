@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'include/db_credentials.php';
 ?>
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ require 'include/db_credentials.php';
             if( $previousPage != "http://localhost/cosc360-team10/adminLogin.php")
                 $_SESSION['previousPage'] = $previousPage;
             ?>
-        <form method="post" action="login.php"> <!-- Change to POST -->
+        <form method="post" action="adminLogin.php"> <!-- Change to POST -->
         <fieldset id="login_form">
             <legend>Admin Login</legend>
             <input type="text" name="username" placeholder="Admin Username" id=username>
