@@ -1,0 +1,26 @@
+#user_fixed_height{
+	height: 20em;
+	overflow: auto;
+}
+#user_grid {
+	padding: 0.5em;
+	grid-template-columns: auto auto auto auto auto;
+	display: grid;
+}
+.user_item{
+	border: 1px solid #d7dadc;
+	padding: 0.2em;
+}
+.user_heading{
+	text-align: center;
+	font-weight: bold;
+}
+.post_item{
+	border: 1px solid #d7dadc;
+	padding: 0.2em;
+	background-color: #1a1a1b;
+}
+.post_heading{
+	text-align: center;
+	font-weight: bold;
+}
