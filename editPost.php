@@ -46,6 +46,7 @@ if ($delete != "") {
             window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
         </script>
         <script type="text/javascript" src="js/edit_comments.js"></script>
+        <script type="text/javascript" src="js/edit_post.js"></script>
     </head>
 
     <body>
@@ -61,12 +62,12 @@ if ($delete != "") {
                     $body = $rw['body'];
                     $topicName = $rw['topicName'];
         ?>
-                    <form action="editPost.php" method="post">
-                        <textarea name="title" id='title_editor'><?php echo $title; ?></textarea>
+                    <form action="editPost.php" method="post" id="post_form">
+                        <textarea name="title" id='post_form_title' class="title_editor"><?php echo $title; ?></textarea>
                         <br>
-                        <textarea name="body" id='body_editor'><?php echo $body; ?></textarea>
+                        <textarea name="body" id='post_form_body' class="body_editor"><?php echo $body; ?></textarea>
                         <br>
-                        <select name="topic">
+                        <select name="topic" id="post_form_topic">
                             <option value="unchanged">Don't Change</option>
                             <?php
                             $result = $pdo->prepare("SELECT * FROM topic");

@@ -49,8 +49,8 @@ if ($delete != "") {
                     echo "<div class='main_wrapper'>";
                     $body = $rw['body'];
         ?>
-                    <form action="editComments.php" method="post">
-                        <textarea name="body" id='body_editor'><?php echo $body; ?></textarea>
+                    <form action="editComments.php" method="post" id="comment_form">
+                        <textarea name="body" class='body_editor' id="comment_form_body"><?php echo $body; ?></textarea>
 
                         <input type="submit" value="Update Comment">
                         <input type="hidden" name="commentid" value="<?php echo $rw['commentid']; ?>">
