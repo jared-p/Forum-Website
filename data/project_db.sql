@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2021 at 04:54 AM
+-- Generation Time: Mar 25, 2021 at 06:36 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -189,6 +189,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `pass`, `firstName`, `lastName`, `email`, `pic`, `disable`) VALUES
+('1', 'zI6iG8AI5P', 'jared', 'rocks', '0php00@gmail.com', '', 0),
 ('jared', 'pass1', 'jrod', 'ded', 'fuck@gmail.com', '', 0),
 ('jrod', 'pass', 'jrock', 'hawk', 'fuckinghell@gmail.com', '', 1);
 
