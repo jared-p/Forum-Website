@@ -3,7 +3,10 @@ window.addEventListener('load', function () {
         //console.log($(e.target).attr("class"));
         ///*
         if (this.id == "create_post") {
-
+            if (e.target.className == "post_title") {
+                $(this.children[1]).toggleClass("hide");
+                $(this.children[2]).toggleClass("hide");
+            }
         } else if ($(e.target).attr("class") == "post_title") {
             $(this.children[1]).toggleClass("hide");
             $(this.children[2]).toggleClass("hide");
