@@ -47,6 +47,21 @@ window.addEventListener('load', function () {
     });
     //}, 1000);
 
+    $("#comment_form").on('submit', function (e) {
+        body = $("#comment_form_body");
+        flag = "";
+        if (body.val().trim().length == 0 || body.val().trim().length > 400) {
+            e.preventDefault();
+            flag = flag + "Post must be less than 400 characters but non zero, yours is " + body.val().trim().length + "\n";
+            body.css("border", "3px solid red");
+        } else {
+            body.css("border", "none");
+        }
+        if (flag != "") {
+            alert(flag);
+        }
+        //e.preventDefault();
+    });
 
 
 });

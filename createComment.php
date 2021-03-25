@@ -52,8 +52,8 @@ require 'include/db_credentials.php';
         } else {
     ?>
             <div class="main_wrapper">
-                <form action="createComment.php" method="post">
-                    <textarea name="body" cols="30" rows="6"></textarea>
+                <form action="createComment.php" method="post" id="comment_form">
+                    <textarea name="body" cols="30" rows="6" id="comment_form_body"></textarea>
                     <input type="submit" value="Add Comment">
                     <input type="hidden" name="commentid" value="<?php echo $commentid; ?>">
                     <input type="hidden" name="postid" value="<?php echo $postid; ?>">
