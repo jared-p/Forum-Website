@@ -54,12 +54,12 @@ if ($delete != "") {
                     <?php echo $body; ?>
                     </textarea>
 
-                        <input type="submit" value="Update Posting">
+                        <input type="submit" value="Update Comment">
                         <input type="hidden" name="commentid" value="<?php echo $rw['commentid']; ?>">
                     </form>
                     <br>
                     <form action="editComments.php" method="post">
-                        <input type="submit" value="Delete Posting">
+                        <input type="submit" value="Delete Comment">
                         <input type="hidden" name="delete" value="1">
                         <input type="hidden" name="commentid" value="<?php echo $rw['commentid']; ?>">
                     </form>
