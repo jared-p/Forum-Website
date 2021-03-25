@@ -31,6 +31,8 @@
 //     }
 // });
 
+
+//Still needs form type validation (string lengths mainly)
 window.addEventListener("load", function (e) {
     $("#user_form").on("submit", function (e) {
         var required = $(".required");
