@@ -49,16 +49,17 @@ require 'include/db_credentials.php';
         $postdate = date_create($row['postdate']);
         echo '<p class="post_information">Username: ' . $row['username'] . ', Posted on: ' . date_format($postdate, 'm/d/Y g:ia') . '</p>';
         //echo '</div>';
+        echo '<div id="comments">';
+        echo '</div>';
+        echo '</div>';
       }
     } else {
       echo "<p>No postings match this id</p>";
     }
   } else {
     echo "<p>Invalid post request</p>";
+    echo "<a href='main.php'>Click to return to postings</a>";
   }
-  echo '<div id="comments">';
-  echo '</div>';
-  echo '</div>';
   ?>
 </body>
 

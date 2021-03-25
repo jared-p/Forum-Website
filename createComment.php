@@ -47,6 +47,7 @@ require 'include/db_credentials.php';
                 $commentdate = date("Y-m-d H:i:s");
                 $insertrslt->execute(array(trim($body), $postid, $username, null, $commentdate));
             }
+            header("Location: posting.php?id=" . $postid);
             echo "<a href='posting.php?id=" . $postid . "'>Comment has been added, click to return to post</a>";
         } else {
     ?>
