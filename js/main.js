@@ -1,7 +1,12 @@
 window.addEventListener('load', function () {
     $(".post").on('click', function (e) {
+        //console.log($(e.target).attr("class"));
+        ///*
         if (this.id == "create_post") {
 
+        } else if ($(e.target).attr("class") == "post_title") {
+            $(this.children[1]).toggleClass("hide");
+            $(this.children[2]).toggleClass("hide");
         } else {
             var postid = this.children[0].id;
             var url = "posting.php";
@@ -11,6 +16,7 @@ window.addEventListener('load', function () {
             window.location.href = pointer;
             //$(this).css('color','red');
         }
+        //*/
     });
     $(".post").on('mouseover', function (e) {
         $(this).css("border", "1px solid #d7dadc");
@@ -18,6 +24,9 @@ window.addEventListener('load', function () {
     $(".post").on('mouseout', function (e) {
         $(this).css("border", "1px solid #343536");
     });
+
+
+
 
     $("#post_form").on('submit', function (e) {
         title = $("#post_form_title");
@@ -48,6 +57,5 @@ window.addEventListener('load', function () {
         if (flag != "") {
             alert(flag);
         }
-        //e.preventDefault();
     });
 });

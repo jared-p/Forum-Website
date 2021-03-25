@@ -177,3 +177,12 @@ a:hover {
     height: 8em;
     width: 30em;
 }
+
+#post_form_body {
+    width: 32em;
+    height: 8em;
+}
+
+.hide {
+    display: none;
+}
