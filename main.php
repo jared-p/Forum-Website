@@ -8,6 +8,7 @@ require 'include/db_credentials.php';
 <head>
     <meta charset="utf-8">
     <title>Main Page</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">

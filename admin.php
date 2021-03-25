@@ -63,6 +63,7 @@ if ($name != "" && $email != "" && $post != "") {
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/admin.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
