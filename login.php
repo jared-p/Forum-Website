@@ -22,7 +22,7 @@ require 'include/db_credentials.php';
     include 'header.php';
     if (!isset($_SESSION['user'])) {
         $previousPage = $_SERVER['HTTP_REFERER'];
-        if ($previousPage != "http://localhost/cosc360-team10/login.php")
+        if ($previousPage != "http://localhost/cosc360-team10/login.php" || $previousPage != "http://localhost/cosc360-team10/lost_password.php")
             $_SESSION['previousPage'] = $previousPage;
     ?>
         <form method="post" action="login.php">
@@ -71,7 +71,7 @@ require 'include/db_credentials.php';
             $previousPage = $_SESSION['previousPage'];
             echo "<p>You will be redirected to your last page in 3 seconds</p>";
             header("refresh:3; url=" . $previousPage);
-            echo "<a href='" . $previousPage . "'>If not click here</a>";
+            echo "<a href='main.php'>If not click here to go to main</a>";
         }
     }
     ?>
