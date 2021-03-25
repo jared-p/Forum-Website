@@ -186,3 +186,8 @@ a:hover {
 .hide {
     display: none;
 }
+
+.left_align {
+    text-align: left;
+    font-size: 75%;
+}
