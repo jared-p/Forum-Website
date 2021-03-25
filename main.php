@@ -47,6 +47,7 @@ require 'include/db_credentials.php';
         <div class="right_col">
             <?php
             $user = "";
+
             if (isset($_SESSION['user'])) {
                 $user = $_SESSION['user'];
 

@@ -7,6 +7,9 @@ window.addEventListener('load', function () {
                 $(this.children[1]).toggleClass("hide");
                 $(this.children[2]).toggleClass("hide");
             }
+        } else if (this.id == "demo") {
+            var url = "main.php";
+            window.location.href = url;
         } else if ($(e.target).attr("class") == "post_title") {
             $(this.children[1]).toggleClass("hide");
             $(this.children[2]).toggleClass("hide");

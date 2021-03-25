@@ -191,3 +191,35 @@ a:hover {
     text-align: left;
     font-size: 75%;
 }
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.right_col_account {
+    display: grid;
+    grid-gap: 10px;
+    text-align: start;
+    margin: 0 0.5% 0 0;
+}
+
+.left_col_account {
+    text-align: center;
+    background-color: #1a1a1b;
+    border: 1px solid #343536;
+    word-wrap: break-word;
+}
+
+.main_account {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 0.5%;
+    /*background-color: #030303;*/
+    padding: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
