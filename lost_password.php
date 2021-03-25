@@ -30,8 +30,6 @@ function generateRandomString($length = 10)
 <body>
     <?php
     include 'header.php';
-    //TEMP MUST REMOVE THIS LINE
-    $_SESSION['user'] = null;
 
     if (isset($_SESSION['user'])) {
         echo "<a href='main.php'>You are already logged in, click to return to the main page</a>";
