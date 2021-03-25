@@ -53,8 +53,7 @@ require 'include/db_credentials.php';
     ?>
             <div class="main_wrapper">
                 <form action="createComment.php" method="post">
-                    <textarea name="body" cols="30" rows="6">
-                </textarea>
+                    <textarea name="body" cols="30" rows="6"></textarea>
                     <input type="submit" value="Add Comment">
                     <input type="hidden" name="commentid" value="<?php echo $commentid; ?>">
                     <input type="hidden" name="postid" value="<?php echo $postid; ?>">

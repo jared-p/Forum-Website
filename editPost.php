@@ -62,13 +62,9 @@ if ($delete != "") {
                     $topicName = $rw['topicName'];
         ?>
                     <form action="editPost.php" method="post">
-                        <textarea name="title" id='title_editor'>
-                    <?php echo $title; ?>
-                    </textarea>
+                        <textarea name="title" id='title_editor'><?php echo $title; ?></textarea>
                         <br>
-                        <textarea name="body" id='body_editor'>
-                    <?php echo $body; ?>
-                    </textarea>
+                        <textarea name="body" id='body_editor'><?php echo $body; ?></textarea>
                         <br>
                         <select name="topic">
                             <option value="unchanged">Don't Change</option>

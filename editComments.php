@@ -50,9 +50,7 @@ if ($delete != "") {
                     $body = $rw['body'];
         ?>
                     <form action="editComments.php" method="post">
-                        <textarea name="body" id='body_editor'>
-                    <?php echo $body; ?>
-                    </textarea>
+                        <textarea name="body" id='body_editor'><?php echo $body; ?></textarea>
 
                         <input type="submit" value="Update Comment">
                         <input type="hidden" name="commentid" value="<?php echo $rw['commentid']; ?>">
