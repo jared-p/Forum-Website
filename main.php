@@ -68,19 +68,19 @@ require 'include/db_credentials.php';
             if ($user != "") {
             ?>
                 <div id="create_post" class="post">
-                    <form method="post" action="main.php">
+                    <form method="post" action="main.php" id="post_form">
                         <h3 class="post_title">
                             Create a new post
                             <br>
-                            <input type="text" name="title" placeholder="Title">
+                            <input type="text" name="title" placeholder="Title" id="post_form_title">
                         </h3>
                         <p class="post_content">
                             <label for="body_input">Post content:</label>
                             <br>
-                            <textarea name="body" id="body_input">
-                        </textarea>
+                            <textarea name="body" id="post_form_body"></textarea>
                         </p>
-                        <select name="topic">
+                        <select name="topic" id="post_form_topic">
+                            <option value="none">Select Topic</option>
                             <?php
                             $topQry = "SELECT DISTINCT topicName from post ORDER BY topicName ASC";
                             $topResult = $pdo->query($topQry);
