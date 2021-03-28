@@ -1,38 +1,4 @@
 window.addEventListener('load', function () {
-    $(".post").on('click', function (e) {
-        //console.log($(e.target).attr("class"));
-        ///*
-        if (this.id == "create_post") {
-            if (e.target.className == "post_title") {
-                $(this.children[1]).toggleClass("hide");
-                $(this.children[2]).toggleClass("hide");
-            }
-        } else if (this.id == "demo") {
-            var url = "main.php";
-            window.location.href = url;
-        } else if ($(e.target).attr("class") == "post_title") {
-            $(this.children[1]).toggleClass("hide");
-            $(this.children[2]).toggleClass("hide");
-        } else {
-            var postid = this.children[0].id;
-            var url = "posting.php";
-            var pointer = url + "?id=" + postid;
-
-            //console.log(this.children[0].id);
-            window.location.href = pointer;
-            //$(this).css('color','red');
-        }
-        //*/
-    });
-    $(".post").on('mouseover', function (e) {
-        $(this).css("border", "1px solid #d7dadc");
-    });
-    $(".post").on('mouseout', function (e) {
-        $(this).css("border", "1px solid #343536");
-    });
-
-
-
 
     $("#post_form").on('submit', function (e) {
         title = $("#post_form_title");
@@ -53,7 +19,7 @@ window.addEventListener('load', function () {
         } else {
             body.css("border", "none");
         }
-        if (topic.val() == "" || topic.val() == "none") {
+        if (topic.val() == "") {
             e.preventDefault();
             flag = flag + "Must select a topic for the post";
             topic.css("border", "3px solid red");
@@ -63,5 +29,6 @@ window.addEventListener('load', function () {
         if (flag != "") {
             alert(flag);
         }
+        //e.preventDefault();
     });
 });

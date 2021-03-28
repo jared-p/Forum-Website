@@ -1,15 +1,17 @@
-body{
+body {
     font-size: 150%;
     color: #d7dadc;
     background-color: #030303;
 }
 
-.main{
+.main {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
 }
+
 /*Declared the main div element to css grid and sets layout params*/
+
 .main {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -19,50 +21,65 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+
 /*Sets the left and right bar internal padding, these are default grid elements since in the grid container*/
-.main > div {
+
+.main>div {
     /* can add another background colour here */
     padding: 1%;
 }
+
 /*Declares the right column to be a grid (grid to hold the forum elements)*/
-.right_col{
+
+.right_col {
     display: grid;
     grid-gap: 10px;
-    text-align:start;
+    text-align: start;
     margin: 0 0.5% 0 0;
 }
+
 /*Sets the content within the left col container to be centered.*/
-.left_col{
-    text-align:center;
+
+.left_col {
+    text-align: center;
     background-color: #1a1a1b;
     border: 1px solid #343536;
 }
+
 /*Sets the internals of each forum element (which are grid elements of the right_col class)*/
-.right_col > .post {
-    text-align:start;
+
+.right_col>.post {
+    text-align: start;
 }
+
 /*Title for each of the forum discussion postings*/
-.post_title{
+
+.post_title {
     text-decoration: underline;
     margin-bottom: 20px;
 }
-.post_content{
+
+.post_content {
     font-size: 80%;
 }
-.post_information{
-    text-align:end;
+
+.post_information {
+    text-align: end;
     font-size: 75%;
     border-top: 1px solid #d7dadc;
     margin-top: 15px;
 }
-.left_col_title{
+
+.left_col_title {
     /*text-align: start; */
-    color:#ffffff;
+    color: #ffffff;
 }
+
 /* Styling the searchbar */
-#search-bar{
+
+#search-bar {
     background-color: #1a1a1b;
-    margin:0 0 0.3em 0;
+    margin: 0 0 0.3em 0;
     /*display: flex;
     justify-content: center;
     align-items: center;*/
@@ -71,25 +88,30 @@ body{
     margin-right: auto;
     font-size: 80%;
 }
+
 #search {
     width: 50%;
     margin: 1em 1em;
     padding: 0.25em;
     box-sizing: border-box;
     border-radius: 0.5em;
-  }
-a:link{
+}
+
+a:link {
     color: #d7dadc;
     text-decoration: none;
 }
-a:visited{
+
+a:visited {
     color: #d7dadc;
     text-decoration: none;
 }
-a:hover{
-    text-decoration:underline;
+
+a:hover {
+    text-decoration: underline;
 }
-.post{
+
+.post {
     border: 1px solid #343536;
     background-color: #1a1a1b;
     width: 75%;
@@ -98,10 +120,12 @@ a:hover{
     padding: 0.5em;
     border-radius: 0.5em;
 }
-#comments{
+
+#comments {
     margin-top: 15px;
 }
-.root_comment{
+
+.root_comment {
     border: 1px solid #343536;
     background-color: #1a1a1b;
     width: 95%;
@@ -111,7 +135,8 @@ a:hover{
     border-radius: 0.5em;
     margin-bottom: 15px;
 }
-.sub_comment{
+
+.sub_comment {
     border: 1px solid #343536;
     background-color: #1a1a1b;
     width: 90%;
@@ -120,25 +145,93 @@ a:hover{
     border-radius: 0.5em;
     margin-top: 20px;
 }
-#no_comments{
+
+#no_comments {
     text-align: center;
 }
-.comment_information{
-    text-align:end;
+
+.comment_information {
+    text-align: end;
     font-size: 75%;
     border-top: 1px solid #d7dadc;
     margin-top: 5px;
 }
-#username, #password{
+
+#username, #password {
     margin: 0.4em;
 }
+
 #submit, #reset {
     margin: 0.4em;
 }
-#login_form{
+
+#login_form {
     width: 50px;
     margin-left: auto;
     margin-right: auto;
     background-color: #1a1a1b;
     border-color: #d7dadc;
+}
+
+#body_input {
+    height: 8em;
+    width: 30em;
+}
+
+#post_form_body {
+    width: 32em;
+    height: 8em;
+}
+
+.hide {
+    display: none;
+}
+
+.left_align {
+    text-align: left;
+    font-size: 75%;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.right_col_account {
+    display: grid;
+    grid-gap: 10px;
+    text-align: start;
+    margin: 0 0.5% 0 0;
+}
+
+.left_col_account {
+    text-align: center;
+    background-color: #1a1a1b;
+    border: 1px solid #343536;
+    word-wrap: break-word;
+}
+
+.main_account {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 0.5%;
+    /*background-color: #030303;*/
+    padding: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main_wrapper_editAccount {
+    /*
+    display: flex;
+    justify-content: center;
+    */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -21,16 +21,16 @@ require 'include/db_credentials.php';
 <body>
     <?php
     include 'header.php';
-    if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['admin'])) {
         $previousPage = $_SERVER['HTTP_REFERER'];
-        if ($previousPage != "http://localhost/cosc360-team10/login.php" && $previousPage != "http://localhost/cosc360-team10/lost_password.php")
+        if ($previousPage != "http://localhost/cosc360-team10/adminLogin.php")
             $_SESSION['previousPage'] = $previousPage;
     ?>
-        <form method="post" action="login.php">
+        <form method="post" action="adminLogin.php">
             <!-- Change to POST -->
             <fieldset id="login_form">
-                <legend>Login</legend>
-                <input type="text" name="username" placeholder="Username" id=username>
+                <legend>Admin Login</legend>
+                <input type="text" name="username" placeholder="Admin Username" id=username>
                 <br>
                 <input type="password" name="password" placeholder="Password" id=password>
                 <br>
@@ -47,20 +47,14 @@ require 'include/db_credentials.php';
         }
         //echo $uname ." ". $pass;
         if ($uname != "" && $uname != "failed" && $pass != "" && $pass != "failed") {
-            $qry = $pdo->prepare('SELECT * FROM users WHERE username=? AND pass=?');
+            $qry = $pdo->prepare('SELECT * FROM admin WHERE username=? AND pass=?');
             $qry->execute(array($uname, $pass));
             //echo $result = $qry->fetchAll();
-            if ($qry->rowCount() != 0) {
-                while ($row = $qry->fetch()) {
-                    if ($row['disable'] == 0) {
-                        $_SESSION['user'] = $uname;
-                        if (isset($_SESSION['previousPage'])) {
-                            $previousPage = $_SESSION['previousPage'];
-                            header("Location: " . $previousPage . "");
-                        }
-                    } else {
-                        echo "<p>Your account has been disabled, contact an admin</p>";
-                    }
+            if ($qry->fetchAll()) {
+                $_SESSION['admin'] = $uname;
+                if (isset($_SESSION['previousPage'])) {
+                    $previousPage = $_SESSION['previousPage'];
+                    header("Location: " . $previousPage . "");
                 }
             } else {
                 echo "<p>Invalid Login</p>";
@@ -69,10 +63,10 @@ require 'include/db_credentials.php';
     } else {
         echo "<p>You are already logged in</p>";
         if (isset($_SESSION['previousPage'])) {
-            $previousPage = $_SERVER['HTTP_REFERER'];
-            echo "<p>You will be redirected to your last page in 5 seconds</p>";
+            $previousPage = $_SESSION['previousPage'];
+            echo "<p>You will be redirected to your last page in 3 seconds</p>";
             header("refresh:3; url=" . $previousPage);
-            echo "<a href='main.php'>If not click here to go to main</a>";
+            echo "<a href='" . $previousPage . "'>If not click here</a>";
         }
     }
     ?>

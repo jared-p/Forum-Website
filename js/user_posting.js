@@ -16,6 +16,14 @@ window.addEventListener('load', function () {
                         }
                         if ($("#comments_title").length == 0) {
                             $("#comments").before($('<h3 id="comments_title">Comments: ' + comments.length + '</h3>'));
+                            var formNode = $('<form action="createComment.php" method="post"></form>');
+                            var createButton = $('<input type="submit" value="Add Comment">');
+                            var hiddenInput = $('<input type="hidden" name="commentid" value="' + null + '">');
+                            var hidden_postid = $('<input type="hidden" name="postid" value="' + postid + '">');
+                            formNode.append(createButton);
+                            formNode.append(hiddenInput);
+                            formNode.append(hidden_postid);
+                            $("#comments").before(formNode);
                         } else {
                             $("#comments_title").text('Comments: ' + comments.length);
                             $('#no_comments').remove();
@@ -27,6 +35,14 @@ window.addEventListener('load', function () {
                                 node.on("click", collapseComment);
                                 var commentNode = $("<p class='left_align' id='" + postid + comments[i].commentid + "'>" + numComments + " Replies</p>");
                                 var infoNode = $('<p class="comment_information">Username: ' + comments[i].username + ', Posted on: ' + comments[i].commentdate + '</p>');
+                                var formNode = $('<form action="createComment.php" method="post" class="hide"></form>');
+                                var editButton = $('<input type="submit" value="Add Comment">');
+                                var hiddenInput = $('<input type="hidden" name="commentid" value="' + comments[i].commentid + '">');
+                                var hidden_postid = $('<input type="hidden" name="postid" value="' + postid + '">');
+                                formNode.append(editButton);
+                                formNode.append(hiddenInput);
+                                formNode.append(hidden_postid);
+                                node.append(formNode);
                                 node.append(infoNode);
                                 node.append(commentNode);
                                 $("#comments").prepend(node);
@@ -41,6 +57,14 @@ window.addEventListener('load', function () {
                                 node.on("click", collapseComment);
                                 var commentNode = $("<p class='left_align'>" + numComments + " Replies</p>");
                                 var infoNode = $('<p class="comment_information">Username: ' + comments[i].username + ', Posted on: ' + comments[i].commentdate + '</p>');
+                                var formNode = $('<form action="createComment.php" method="post" class="hide"></form>');
+                                var editButton = $('<input type="submit" value="Add Comment">');
+                                var hiddenInput = $('<input type="hidden" name="commentid" value="' + comments[i].commentid + '">');
+                                var hidden_postid = $('<input type="hidden" name="postid" value="' + postid + '">');
+                                formNode.append(editButton);
+                                formNode.append(hiddenInput);
+                                formNode.append(hidden_postid);
+                                node.append(formNode);
                                 node.append(infoNode);
                                 node.append(commentNode);
                                 $('#c' + comments[i].parentid).append(node);
@@ -53,6 +77,14 @@ window.addEventListener('load', function () {
                 } else {
                     if ($("#comments_title").length == 0) {
                         $("#comments").before($('<h3 id="comments_title">Comments: ' + comments.length + '</h3>'));
+                        var formNode = $('<form action="createComment.php" method="post"></form>');
+                        var createButton = $('<input type="submit" value="Add Comment">');
+                        var hiddenInput = $('<input type="hidden" name="commentid" value="' + null + '">');
+                        var hidden_postid = $('<input type="hidden" name="postid" value="' + postid + '">');
+                        formNode.append(createButton);
+                        formNode.append(hiddenInput);
+                        formNode.append(hidden_postid);
+                        $("#comments").before(formNode);
                         $("#comments").append($("<p id='no_comments'>No Comments Posted Yet!</p>"));
                     }
                 }
@@ -67,7 +99,7 @@ function collapseComment(e) {
     e.stopPropagation();
     $(this.children[1]).toggleClass("hide");
     for (var i = 0; i < this.children.length; i++) {
-        if (this.children[i].className == "left_align" || this.children[i].className == "comment_information") {
+        if (this.children[i].className == "left_align") {
 
         } else {
             $(this.children[i]).toggleClass("hide");
