@@ -17,7 +17,8 @@ body {
     grid-template-columns: 20% 80%;
     grid-gap: 0.5%;
     /*background-color: #030303;*/
-    padding: 0% 0.5% 0% 0.5%;
+    padding: 0.5%;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -172,6 +173,7 @@ a:hover {
     background-color: #1a1a1b;
     border-color: #d7dadc;
 }
+<<<<<<< Updated upstream
 
 #body_input {
     height: 8em;
@@ -235,3 +237,5 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+=======
+>>>>>>> Stashed changes
