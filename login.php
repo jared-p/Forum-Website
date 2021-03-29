@@ -19,8 +19,8 @@ require 'include/db_credentials.php';
 </head>
 
 <body>
+
     <?php
-    include 'header.php';
     if (!isset($_SESSION['user'])) {
         $previousPage = $_SERVER['HTTP_REFERER'];
         if ($previousPage != "http://localhost/cosc360-team10/login.php" && $previousPage != "http://localhost/cosc360-team10/lost_password.php")
@@ -78,5 +78,5 @@ require 'include/db_credentials.php';
     ?>
 
 </body>
-
+  <?php   include 'footer.php'; ?>
 </html>

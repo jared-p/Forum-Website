@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'include/db_credentials.php';
 ?>
 
@@ -15,18 +14,25 @@ require 'include/db_credentials.php';
 
 
   <body>
+    <header>
+
+
+
+<!-- <?php  if (isset($_SESSION['user'])) {
+      $user = $_SESSION['user'];
+      echo $user;} ?> -->
+
+<div class="topDivPush">
 <nav>
     <div class="logo">
       <li> <a href="main.php" class="logoheader">   <h2>My <span>BLOG POST</span> </h2></a> </li>
 </div>
     <ul class="nav_links">
-      <li>
+      <li class="center">
         <div class="search">
-   <form method="get" action="main.php">
-                <input type="text"
-                    placeholder=" Search Posts"
-                    name="search">
-                    <select name="topic" id="topic">
+   <form method="get" action="main.php" class="form">
+                <input type="text" name="search post" value="search post" class="textbox" placeholder=" search posts">
+                <select name="topic" id="topic">
                         <?php
                         $topicQry = "SELECT * FROM topic";
                         echo '<option value="all">Choose Topic</option>';
@@ -36,35 +42,26 @@ require 'include/db_credentials.php';
                         }
                         ?>
                     </select>
-                  <input type="submit" value="submit">
+                  <input type="submit" value="Search" class="btn">
             </form>
         </div>
 </li>
       <li><a href="login.php" class="links">Login</a></li>
-      <li><a href="#" class="links">About</a></li>
-      <li><a href="#"class="links">More</a>
+      <li><a href="create_account.php" class="links">Sign Up</a></li>
+      <li><a href="#"class="links">Profile</a>
         <ul>
-          <li><a class="dropdown-item" role="presentation" href="#">Evenmore</a</li>
-          <li><a class="dropdown-item" role="presentation" href="#">More</a></li>
-          <li>  <a class="dropdown-item" role="presentation" href="#">About</a></li>
+          <li><a class="dropdown-item"  href="#">Personal</a</li>
+          <li><a href="userAccount.php" class="dropdown-item" role="presentation" href="#">Account</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="editAccount.php">Profile</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="createComment.php">New Comment</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="editComments.php">Edit Comment</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="editPosts.php">New Post</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
+          <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Log Out</a></li>
         </ul>
       </li>
 
     </ul>
-
-    <!-- <div class="search">
-            <form action="#">
-                <input type="text"
-                    placeholder=" Search Posts"
-                    name="search">
-                <button>
-                    <i class="fa fa-search"
-                        style="font-size: 18px;">
-                    </i>
-                </button>
-            </form>
-        </div> -->
-
 
     <div class="sandwich">
       <div class="line1"> </div>
@@ -72,7 +69,31 @@ require 'include/db_credentials.php';
       <div class="line3"> </div>
     </div>
     </nav>
+    </div>
     <script src="js/header.js" ></script>
+      </header>
+      <div class="header2">
+        <?php
+        if (isset($_SESSION['user'])) {
+            $session_uname = $_SESSION['user'];
+            $uname = "";
+            $fname = "";
+            $lname = "";
+            $email = "";
+            $pass = "";
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $uname = $_POST["uname"] ?? "";
+                $lname = $_POST["lname"] ?? "";
+                $fname = $_POST["fname"] ?? "";
+                $email = $_POST["email"] ?? "";
+                $pass = $_POST["pass"] ?? "";
+            }
+          }
+            echo "<p> Your are logged in $fname </p>";
+            exit();
+         ?>
+
+      </div>
   </body>
 
 </html>

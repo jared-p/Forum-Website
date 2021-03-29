@@ -21,7 +21,7 @@ require 'include/db_credentials.php';
 
 <body>
     <?php
-    include 'header.php';
+  
     if (isset($_SESSION['user'])) {
         $session_uname = $_SESSION['user'];
         $uname = "";

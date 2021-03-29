@@ -15,12 +15,8 @@ require 'include/db_credentials.php';
         window.jQuery || document.write('<script src=“js/jquery-3.1.1.min.js”><\/script>');
     </script>
     <script type="text/javascript" src="js/main.js"></script>
-
 </head>
-
 <body>
-    <?php include 'header.php'; ?>
-
     <div class="main">
         <div class="left_col">
             <h1 class="left_col_title">Top 3 Topics</h1>
@@ -166,5 +162,5 @@ require 'include/db_credentials.php';
 
 
 </body>
-
+<?php include 'footer.php'; ?>
 </html>
