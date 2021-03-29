@@ -1,0 +1,218 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+nav{
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  min-height: 8vh;
+  font-family: 'Poppins', sans-serif;
+  background-color:#bdc092;
+}
+
+.logo{
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+
+.logo li {
+    list-style: none;
+}
+
+.logo li .logoheader{
+  color: white;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.logo .logoheader:hover{
+  color: black;
+
+}
+
+.nav_links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  position: relative;
+}
+
+.nav_links li{
+  list-style: none;
+}
+
+.nav_links li ul{
+  display: none;
+  position: absolute;
+  background-color: black;
+  padding:6px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.nav_links li:hover ul{
+  display: block;
+}
+
+.nav_links li ul li{
+width:120px;
+border-radius: 4px;
+}
+
+
+.nav_links li ul li a{
+padding:2px 14px;
+}
+
+.nav_links li ul li a:hover{
+background-color: #c9aa88;
+
+}
+
+.nav_links a{
+  color: white;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.nav_links li .links:hover{
+  color: black;
+}
+
+
+input[type=text]{
+  cursor: pointer;
+    border-radius:25px;
+    text-align:center;
+}
+/*
+.search input[type=text]{
+        width:300px;
+        height:25px;
+        border-radius:25px;
+        border: none;
+    }
+/*
+.search{
+        float:right;
+        margin:7px;
+    }
+.search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+} */
+.sandwich{
+  display: none;
+}
+
+.sandwich div{
+  width:25px;
+  height:3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width:1024px){
+    .nav_links{
+      width: 60%;
+
+  }
+
+
+@media screen and (max-width:800px){
+body{
+  overflow-x: hidden;
+}
+    .nav_links {
+      position: fixed;
+      right: 0px;
+      height:92vh;
+      top: 8vh;
+      background-color:#bdc092;
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      width:50%;
+      transform: translateX(100%);
+      transition:transform 0.5s ease-in;
+}
+.nav_links li:hover ul{
+  display: block;
+  overflow-y: scroll;
+}
+.nav_links li{
+  opacity: 0;
+}
+.sandwich{
+  display: block;
+  cursor: pointer;
+}
+}
+
+.nav-active{
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1{
+  transform: rotate(-45deg) translate(-5px,6px);
+
+}
+.toggle .line2{
+opacity: 0;
+}
+
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+
+}
+
+
+
+
+
+
+
+<?php
+if (isset($_SESSION['user'])) {
+    $session_uname = $_SESSION['user'];
+    $uname = "";
+    $fname = "";
+    $lname = "";
+    $email = "";
+    $pass = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $uname = $_POST["uname"] ?? "";
+        $lname = $_POST["lname"] ?? "";
+        $fname = $_POST["fname"] ?? "";
+        $email = $_POST["email"] ?? "";
+        $pass = $_POST["pass"] ?? "";
+    }
+  }
+    echo "<p> Your are logged in $fname </p>";
+    exit();
+ ?>

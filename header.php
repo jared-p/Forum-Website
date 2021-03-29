@@ -73,25 +73,7 @@ require 'include/db_credentials.php';
     <script src="js/header.js" ></script>
       </header>
       <div class="header2">
-        <?php
-        if (isset($_SESSION['user'])) {
-            $session_uname = $_SESSION['user'];
-            $uname = "";
-            $fname = "";
-            $lname = "";
-            $email = "";
-            $pass = "";
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $uname = $_POST["uname"] ?? "";
-                $lname = $_POST["lname"] ?? "";
-                $fname = $_POST["fname"] ?? "";
-                $email = $_POST["email"] ?? "";
-                $pass = $_POST["pass"] ?? "";
-            }
-          }
-            echo "<p> Your are logged in $fname </p>";
-            exit();
-         ?>
+
 
       </div>
   </body>
