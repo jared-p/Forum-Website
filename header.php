@@ -4,78 +4,82 @@ require 'include/db_credentials.php';
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Navigation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Syne+Mono&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="css/header.css">
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <title>Navigation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Syne+Mono&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" href="css/header.css">
+</head>
 
 
-  <body>
-    <header>
+<body>
+  <header>
 
 
 
-<!-- <?php  if (isset($_SESSION['user'])) {
-      $user = $_SESSION['user'];
-      echo $user;} ?> -->
+    <!-- <?php if (isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+            echo $user;
+          } ?> -->
 
-<div class="topDivPush">
-<nav>
-    <div class="logo">
-      <li> <a href="main.php" class="logoheader">   <h2>My <span>BLOG POST</span> </h2></a> </li>
-</div>
-    <ul class="nav_links">
-      <li class="center">
-        <div class="search">
-   <form method="get" action="main.php" class="form">
+    <div class="topDivPush">
+      <nav>
+        <div class="logo">
+          <li> <a href="main.php" class="logoheader">
+              <h2>My <span>BLOG POST</span> </h2>
+            </a> </li>
+        </div>
+        <ul class="nav_links">
+          <li class="center">
+            <div class="search">
+              <form method="get" action="main.php" class="form">
                 <input type="text" name="search post" value="search post" class="textbox" placeholder=" search posts">
                 <select name="topic" id="topic">
-                        <?php
-                        $topicQry = "SELECT * FROM topic";
-                        echo '<option value="all">Choose Topic</option>';
-                        $topicResult = $pdo->query($topicQry);
-                        while($topicRow = $topicResult->fetch()){
-                            echo '<option value="'.$topicRow['topicName'].'">'.$topicRow['topicName'].'</option>';
-                        }
-                        ?>
-                    </select>
-                  <input type="submit" value="Search" class="btn">
-            </form>
-        </div>
-</li>
-      <li><a href="login.php" class="links">Login</a></li>
-      <li><a href="create_account.php" class="links">Sign Up</a></li>
-      <li><a href="#"class="links">Profile</a>
-        <ul>
-          <li><a class="dropdown-item"  href="#">Personal</a</li>
-          <li><a href="userAccount.php" class="dropdown-item" role="presentation" href="#">Account</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="editAccount.php">Profile</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="createComment.php">New Comment</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="editComments.php">Edit Comment</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="editPosts.php">New Post</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
-          <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Log Out</a></li>
+                  <?php
+                  $topicQry = "SELECT * FROM topic";
+                  echo '<option value="all">Choose Topic</option>';
+                  $topicResult = $pdo->query($topicQry);
+                  while ($topicRow = $topicResult->fetch()) {
+                    echo '<option value="' . $topicRow['topicName'] . '">' . $topicRow['topicName'] . '</option>';
+                  }
+                  ?>
+                </select>
+                <input type="submit" value="Search" class="btn">
+              </form>
+            </div>
+          </li>
+          <li><a href="login.php" class="links">Login</a></li>
+          <li><a href="create_account.php" class="links">Sign Up</a></li>
+          <li><a href="#" class="links">Profile</a>
+            <ul>
+              <!-- <li><a class="dropdown-item" href="#">Personal</a></li> -->
+              <!-- <li><a href="userAccount.php" class="dropdown-item" role="presentation" href="#">Account</a></li> -->
+              <li> <a class="dropdown-item" role="presentation" href="editAccount.php">Profile</a></li>
+              <li> <a class="dropdown-item" role="presentation" href="createComment.php">New Comment</a></li>
+              <li> <a class="dropdown-item" role="presentation" href="editComments.php">Edit Comment</a></li>
+              <li> <a class="dropdown-item" role="presentation" href="editPosts.php">New Post</a></li>
+              <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
+              <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Log Out</a></li>
+            </ul>
+          </li>
+
         </ul>
-      </li>
 
-    </ul>
-
-    <div class="sandwich">
-      <div class="line1"> </div>
-      <div class="line2"> </div>
-      <div class="line3"> </div>
+        <div class="sandwich">
+          <div class="line1"> </div>
+          <div class="line2"> </div>
+          <div class="line3"> </div>
+        </div>
+      </nav>
     </div>
-    </nav>
-    </div>
-    <script src="js/header.js" ></script>
-      </header>
-      <div class="header2">
+    <script src="js/header.js"></script>
+  </header>
+  <div class="header2">
 
 
-      </div>
-  </body>
+  </div>
+</body>
 
 </html>
