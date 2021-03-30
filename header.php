@@ -39,7 +39,7 @@ session_start();
           <li class="center">
             <div class="search">
               <form method="get" action="main.php" class="form">
-                <input type="text" name="search post" value="search post" class="textbox" placeholder=" search posts">
+                <input type="text" name="search post" class="textbox" placeholder=" search posts">
                 <select name="topic" id="topic">
                   <?php
                   $topicQry = "SELECT * FROM topic";
