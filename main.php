@@ -42,7 +42,7 @@ require 'include/db_credentials.php';
             ?>
             <h1 class="left_col_title">All Topics</h1>
             <?php
-            $topQry = "SELECT DISTINCT topicName from post ORDER BY topicName ASC";
+            $topQry = "SELECT * from topic ORDER BY topicName ASC";
             $topResult = $pdo->query($topQry);
             while ($topRow = $topResult->fetch()) {
                 echo '<div class = "all_topics">';
