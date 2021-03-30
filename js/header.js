@@ -17,9 +17,20 @@ const navSlide = () => {
         //console.log(index/7);
       }
     });
-//sandwich animation
-sandwich.classList.toggle('toggle');
+    //sandwich animation
+    sandwich.classList.toggle('toggle');
   });
 
 }
 navSlide();
+
+window.onscroll = function () { myFunction() };
+var header = document.querySelector(".topDivPush");
+var sticky = header.offsetHeight;
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
