@@ -72,7 +72,7 @@ require 'include/db_credentials.php';
                     echo "<div>First Name: " . $fname . "</div>";
                     echo "<p>Last Name: " . $lname . "</p>";
                     echo "<p>Email: " . $email . "</p>";
-                    echo '<img src="data:image/jpeg;base64,' . base64_encode($row['pic']) . '" alt="User missing a profile picture"/>';
+                    echo '<p><img src="data:image/jpeg;base64,' . base64_encode($row['pic']) . '" alt="User missing a profile picture"/></p>';
                 }
                 ?>
                 <form action="editAccount.php" method="post">
