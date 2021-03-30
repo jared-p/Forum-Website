@@ -71,6 +71,7 @@ require 'include/db_credentials.php';
             echo "<a href='login.php'>Click here to go to the login.</a>";
         }
     }
+    include 'footer.php';
     ?>
 
 </body>

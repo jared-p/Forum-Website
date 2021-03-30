@@ -67,13 +67,22 @@ function generateRandomString($length = 10)
                     <input type="submit" value="Submit">
                 </form>
 
-    <?php
+            <?php
             }
+        } else {
+            ?>
+            <form action="lost_password.php" method="post">
+                <label for="email">Enter your email below and a new password will be sent to your accounts email</label>
+                <br>
+                <input type="email" id="email" name="email" placeholder="Enter Email Here">
+                <input type="submit" value="Submit">
+            </form>
+    <?php
         }
     }
 
     ?>
-
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

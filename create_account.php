@@ -88,6 +88,7 @@ require 'include/db_credentials.php';
     ?>
     <!-- <a href="main.php">Go to Main Page</a> -->
   </div>
+  <?php include 'footer.php'; ?>
 </body>
 
 </html>

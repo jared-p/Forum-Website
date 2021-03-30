@@ -115,6 +115,7 @@ require 'include/db_credentials.php';
             }
         } else {
             echo "<p>Must be logged in</p>";
+            echo "<a href='login.php'>Click here to log in</a>";
         }
         // reseting the PHP Data Object back to null
         $pdo = null;
@@ -134,6 +135,7 @@ require 'include/db_credentials.php';
     <!-- reddit uses a secondary header, maybe integrate that -->
     <!-- tab for posts made by user -->
     <!-- maybe see where they commented -->
+    <?php include 'footer.php'; ?>
 
 </body>
 

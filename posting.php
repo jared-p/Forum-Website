@@ -61,6 +61,7 @@ require 'include/db_credentials.php';
     echo "<p>Invalid post request</p>";
     echo "<a href='main.php'>Click to return to postings</a>";
   }
+  include 'footer.php';
   ?>
 </body>
 

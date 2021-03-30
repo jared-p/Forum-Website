@@ -21,7 +21,7 @@ require 'include/db_credentials.php';
 
 <body>
     <?php
-  
+    include 'header.php';
     if (isset($_SESSION['user'])) {
         $session_uname = $_SESSION['user'];
         $uname = "";
@@ -115,6 +115,7 @@ require 'include/db_credentials.php';
     } else {
         echo "<a href='login.php'>Must be logged in to edit account, click here to login</a>";
     }
+    include 'footer.php';
     ?>
 </body>
 

@@ -69,6 +69,7 @@ require 'include/db_credentials.php';
             echo "<a href='" . $previousPage . "'>If not click here</a>";
         }
     }
+    include 'footer.php';
     ?>
 
 </body>
