@@ -70,6 +70,7 @@ require 'include/db_credentials.php';
                 echo "<p>Invalid Login</p>";
             }
         }
+        echo "<a href='lost_password.php'>Lost Password? Click here.</a>";
     } else {
         echo "<p>You are already logged in</p>";
         if (isset($_SESSION['previousPage'])) {
