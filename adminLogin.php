@@ -22,9 +22,9 @@ require 'include/db_credentials.php';
     <?php
     include 'header.php';
     if (!isset($_SESSION['admin'])) {
-        $previousPage = $_SERVER['HTTP_REFERER'];
-        if ($previousPage != "http://localhost/cosc360-team10/adminLogin.php")
-            $_SESSION['previousPage'] = $previousPage;
+        // $previousPage = $_SERVER['HTTP_REFERER'];
+        // if ($previousPage != "http://localhost/cosc360-team10/adminLogin.php")
+        //     $_SESSION['previousPage'] = $previousPage;
     ?>
         <form method="post" action="adminLogin.php">
             <!-- Change to POST -->
@@ -52,22 +52,24 @@ require 'include/db_credentials.php';
             //echo $result = $qry->fetchAll();
             if ($qry->fetchAll()) {
                 $_SESSION['admin'] = $uname;
-                if (isset($_SESSION['previousPage'])) {
-                    $previousPage = $_SESSION['previousPage'];
-                    header("Location: " . $previousPage . "");
-                }
+                // if (isset($_SESSION['previousPage'])) {
+                //     $previousPage = $_SESSION['previousPage'];
+                //     header("Location: " . $previousPage . "");
+                // }
+                header("Location: admin.php");
             } else {
                 echo "<p>Invalid Login</p>";
             }
         }
     } else {
-        echo "<p>You are already logged in</p>";
-        if (isset($_SESSION['previousPage'])) {
-            $previousPage = $_SESSION['previousPage'];
-            echo "<p>You will be redirected to your last page in 3 seconds</p>";
-            header("refresh:3; url=" . $previousPage);
-            echo "<a href='" . $previousPage . "'>If not click here</a>";
-        }
+        // echo "<p>You are already logged in</p>";
+        // if (isset($_SESSION['previousPage'])) {
+        //     $previousPage = $_SESSION['previousPage'];
+        //     echo "<p>You will be redirected to your last page in 3 seconds</p>";
+        //     header("refresh:3; url=" . $previousPage);
+        //     echo "<a href='" . $previousPage . "'>If not click here</a>";
+        // }
+        header("Location: admin.php");
     }
     include 'footer.php';
     ?>
