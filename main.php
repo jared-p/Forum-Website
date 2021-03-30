@@ -18,7 +18,16 @@ require 'include/db_credentials.php';
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header.php';
+    $logout = null;
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $logout = $_GET["logout"] ?? null;
+    }
+    if ($logout == 1 && isset($_SESSION['user'])) {
+        $_SESSION['user'] = null;
+        header('Location: main.php');
+    }
+    ?>
     <div class="main">
         <div class="left_col">
             <h1 class="left_col_title">Top 3 Topics</h1>

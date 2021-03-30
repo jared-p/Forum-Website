@@ -20,10 +20,13 @@ session_start();
 
 
 
-    <!-- <?php if (isset($_SESSION['user'])) {
-            $user = $_SESSION['user'];
-            echo $user;
-          } ?> -->
+    <?php
+    $user = "";
+    if (isset($_SESSION['user'])) {
+      $user = $_SESSION['user'];
+      //echo $user;
+    }
+    ?>
 
     <div class="topDivPush">
       <nav>
@@ -51,20 +54,39 @@ session_start();
               </form>
             </div>
           </li>
-          <li><a href="login.php" class="links">Login</a></li>
-          <li><a href="create_account.php" class="links">Sign Up</a></li>
-          <li><a href="#" class="links">Profile</a>
-            <ul>
-              <!-- <li><a class="dropdown-item" href="#">Personal</a></li> -->
-              <!-- <li><a href="userAccount.php" class="dropdown-item" role="presentation" href="#">Account</a></li> -->
-              <li> <a class="dropdown-item" role="presentation" href="editAccount.php">Profile</a></li>
-              <li> <a class="dropdown-item" role="presentation" href="createComment.php">New Comment</a></li>
-              <li> <a class="dropdown-item" role="presentation" href="editComments.php">Edit Comment</a></li>
-              <li> <a class="dropdown-item" role="presentation" href="editPosts.php">New Post</a></li>
-              <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
-              <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Log Out</a></li>
-            </ul>
-          </li>
+          <?php
+          if ($user != "") {
+            echo '<li><a href="userAccount.php" class="links">' . $user . '</a></li>';
+            echo '<li><a href="main.php?logout=1" class="links">Log out</a></li>';
+          ?>
+            <li><a href="userAccount.php" class="links">Profile</a>
+              <ul>
+                <li> <a class="dropdown-item" role="presentation" href="editAccount.php">Edit Profile</a></li>
+                <li> <a class="dropdown-item" role="presentation" href="editPosts.php">New Post</a></li>
+                <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
+                <li> <a class="dropdown-item" role="presentation" href="main.php?logout=1">Log Out</a></li>
+              </ul>
+            </li>
+          <?php
+          } else {
+            echo '<li><a href="login.php" class="links">Login</a></li>';
+            echo '<li><a href="create_account.php" class="links">Sign Up</a></li>';
+          ?>
+            <li><a href="login.php" class="links">Profile</a>
+              <ul>
+                <li> <a class="dropdown-item" role="presentation" href="login.php">Edit Profile</a></li>
+                <li> <a class="dropdown-item" role="presentation" href="login.php">New Post</a></li>
+                <li> <a class="dropdown-item" role="presentation" href="adminLogin.php">Admin</a></li>
+                <!-- <li> <a class="dropdown-item" role="presentation" href="main.php?logout=1">Log Out</a></li> -->
+              </ul>
+            </li>
+          <?php
+          }
+          ?>
+          <!-- <li><a href="userAccount.php" class="dropdown-item" role="presentation" href="#">Account</a></li> -->
+          <!-- <li> <a class="dropdown-item" role="presentation" href="createComment.php">New Comment</a></li> -->
+          <!-- <li> <a class="dropdown-item" role="presentation" href="editComments.php">Edit Comment</a></li> -->
+
 
         </ul>
 
