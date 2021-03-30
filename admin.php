@@ -163,6 +163,7 @@ if ($name != "" && $email != "" && $post != "") {
             echo "<a href='adminLogin.php'>Click here to go to the admin login.</a>";
         }
     }
+    include 'footer.php';
     ?>
 
 </body>
