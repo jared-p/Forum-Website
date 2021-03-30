@@ -82,6 +82,7 @@ if ($delete != "") {
         }
     }
     ?>
+    </div>
     <?php include 'footer.php'; ?>
     </body>
 

@@ -18,15 +18,8 @@ require 'include/db_credentials.php';
 </head>
 
 <body>
-    <?php include 'header.php';
-    $logout = null;
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $logout = $_GET["logout"] ?? null;
-    }
-    if ($logout == 1 && isset($_SESSION['user'])) {
-        $_SESSION['user'] = null;
-        header('Location: main.php');
-    }
+    <?php
+    include 'header.php';
     ?>
     <div class="main">
         <div class="left_col">
@@ -88,7 +81,7 @@ require 'include/db_credentials.php';
                         <select name="topic" id="post_form_topic">
                             <option value="none">Select Topic</option>
                             <?php
-                            $topQry = "SELECT DISTINCT topicName from post ORDER BY topicName ASC";
+                            $topQry = "SELECT DISTINCT topicName from topic ORDER BY topicName ASC";
                             $topResult = $pdo->query($topQry);
                             while ($topRow = $topResult->fetch()) {
                                 echo "<option value='" . $topRow['topicName'] . "'>" . $topRow['topicName'] . "</option>";

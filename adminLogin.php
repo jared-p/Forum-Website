@@ -56,7 +56,8 @@ require 'include/db_credentials.php';
                 //     $previousPage = $_SESSION['previousPage'];
                 //     header("Location: " . $previousPage . "");
                 // }
-                header("Location: admin.php");
+                //header("Location: admin.php");
+                echo "<a href='admin.php'>Click here to proceed to admin portal</a>";
             } else {
                 echo "<p>Invalid Login</p>";
             }
@@ -69,7 +70,8 @@ require 'include/db_credentials.php';
         //     header("refresh:3; url=" . $previousPage);
         //     echo "<a href='" . $previousPage . "'>If not click here</a>";
         // }
-        header("Location: admin.php");
+        //header("Location: admin.php");
+        echo "<a href='admin.php'>Click here to proceed to admin portal</a>";
     }
     include 'footer.php';
     ?>

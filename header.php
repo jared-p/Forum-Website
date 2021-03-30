@@ -1,6 +1,14 @@
 <?php
 require 'include/db_credentials.php';
 session_start();
+$logout = null;
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  $logout = $_GET["logout"] ?? null;
+}
+if ($logout == 1 && isset($_SESSION['user'])) {
+  $_SESSION['user'] = null;
+  header('Location: main.php');
+}
 ?>
 
 <!DOCTYPE html>

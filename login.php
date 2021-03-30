@@ -55,13 +55,8 @@ require 'include/db_credentials.php';
                 while ($row = $qry->fetch()) {
                     if ($row['disable'] == 0) {
                         $_SESSION['user'] = $uname;
-                        if (isset($_SESSION['previousPage'])) {
-                            $previousPage = $_SESSION['previousPage'];
-                            header("Location: " . $previousPage . "");
-                        } else {
-                            echo "<p>Login Successfuly</p>";
-                            echo "<a href='main.php'>Click here to go to main page</a>";
-                        }
+                        echo "<p>Login Successfuly</p>";
+                        echo "<a href='main.php'>Click here to go to main page</a>";
                     } else {
                         echo "<p>Your account has been disabled, contact an admin</p>";
                     }
@@ -70,17 +65,10 @@ require 'include/db_credentials.php';
                 echo "<p>Invalid Login</p>";
             }
         }
-        echo "<a href='lost_password.php'>Lost Password? Click here.</a>";
+        echo "<br><a href='lost_password.php'>Lost Password? Click here.</a>";
     } else {
         echo "<p>You are already logged in</p>";
-        if (isset($_SESSION['previousPage'])) {
-            $previousPage = $_SERVER['HTTP_REFERER'];
-            echo "<p>You will be redirected to your last page in 5 seconds</p>";
-            header("refresh:3; url=" . $previousPage);
-            echo "<a href='main.php'>If not click here to go to main</a>";
-        } else {
-            echo "<a href='main.php'>Click here to go to main</a>";
-        }
+        echo "<a href='main.php'>Click here to go to main</a>";
     }
     ?>
 
