@@ -152,11 +152,6 @@ require 'include/db_credentials.php';
             $pdo = null;
             //}
             ?>
-            <div class="post">
-                <h3 class="post_title">Forum Title</h3>
-                <p class="post_content">These are the words that I speak</p>
-                <p class="post_information"># Comments, Author, datetime</p>
-            </div>
         </div>
 
     </div>
